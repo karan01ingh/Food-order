@@ -16,7 +16,7 @@ function Menu({category,setcategory}){
       };
       console.log(category);
   return (
-    <div className='flex flex-col ml-8 m-6'>
+    <div className='flex flex-col ml-8 m-6 pb-16 border-b-2 border-gray-200'>
         <h1 className='text-4xl font-bold '>Explore Menu</h1>
         <br />
         <h1 className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum quisquam ipsum veritatis voluptate delectus nemo debitis corrupti, similique officia. Expedita nulla officiis unde eaque doloremque. Aspernatur sed accusamus nobis.loem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro architecto vitae tenetur ullam quod commodi illum quidem facilis sit totam. Culpa iste, voluptate labore provident quos quis! Consequatur, alias corrupti.</h1>
