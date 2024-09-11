@@ -26,7 +26,10 @@ function Navbar() {
         <div className='w-1/5 h-auto '>
             <ul className='flex flex-row justify-around '>
                 <li><button type="button"><img src={assets.search_icon} alt="" /></button></li>
-                <li onClick={handleClick} className='flex flex-row hover:cursor-pointer'><img className='relative' src={assets.basket_icon} alt="" />{items==0?null:<div className='w-3 h-2 rounded-full bg-red-500 -mt-1 '></div>}</li>
+                <li onClick={handleClick} className='flex flex-row hover:cursor-pointer'><img className='relative' src={assets.basket_icon} alt="" />{items==0?null:<span class="relative flex h-3 w-3">
+  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+  <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+</span>}</li>
                 <li><button type="button" className='h-auto w-20 p-1 border-2 border-gray-400 rounded-full hover:bg-red-50'><h1>sign in</h1></button></li>
             </ul>
         </div>
@@ -35,3 +38,4 @@ function Navbar() {
 }
 
 export default Navbar
+{/* <div className='w-3 h-2 rounded-full bg-red-500 -mt-1 '></div> */}
