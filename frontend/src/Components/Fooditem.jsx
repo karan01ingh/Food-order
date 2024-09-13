@@ -13,27 +13,24 @@ function Fooditem({list}){
     const dispatch=useDispatch();
     const {currentCartList}=useSelector((state)=>state.CartItems);
     const {currentitems}=useSelector((state)=>state.CartItems);
-    // const handleClick=async()=>{
 
-    //     console.log("done click",props.id);
-    // }
-    const handleclickWhitebutton=async ()=>{
+    const handleclickWhitebutton= ()=>{
       setitemscount(itemscount+1);
       dispatch(currentItems(currentitems+1));
       // dispatch(currentCartList({...currentCartList,[props.id]:props.price}));
       dispatch(addToCart(list));
       
     }
-    const handleclickGreenbutton=async ()=>{
+    const handleclickGreenbutton= ()=>{
       setitemscount(itemscount+1) 
       dispatch(currentItems(currentitems+1));
     }
-    const handleclickRedbutton=async ()=>{
+    const handleclickRedbutton= ()=>{
       setitemscount(itemscount-1) 
       if(currentitems>0){
        dispatch(currentItems(currentitems-1));
       }
-      dispatch(removefromCart(list));
+      // dispatch(removefromCart(list));
     }
     console.log(currentCartList);
     console.log(currentitems);
