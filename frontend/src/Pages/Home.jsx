@@ -33,8 +33,9 @@ function Home(){
     <h1 className='text-3xl font-bold pl-8 pb-8'>Top dishes near you</h1>
    <div className='w-auto h-auto flex flex-row flex-wrap justify-around'>
       {currentList.map((list)=>(
-       currentcategory=="ALL" ||list.category===currentcategory?<Fooditem id={list._id} name={list.name} image={list.image} price={list.price} description={list.description} category={list.category} />:null
+      //  currentcategory=="ALL" ||list.category===currentcategory?<Fooditem id={list._id} name={list.name} image={list.image} price={list.price} description={list.description} category={list.category} />:null
         // list.category===currentcategory?<Fooditem id={list._id} name={list.name} image={list.image} price={list.price} description={list.description} category={list.category} />:null
+        currentcategory=="ALL" ||list.category===currentcategory?<Fooditem list={list}/>:null
       ))}
     </div>
     </div>

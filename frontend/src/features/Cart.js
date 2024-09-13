@@ -1,18 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
-    currentCartList:null,
+    currentCartList:[],
+    currentitems:null,
 } 
   export const CartItemSlice = createSlice({
     name: 'CartItems',
     initialState,
     reducers:{
         currentCartList:(state,action)=>{
-            state.currentCartList=action.payload
+            state.currentCartList=action.payload;
+        },
+        currentItems:(state,action)=>{
+          state.currentitems=action.payload;
+        },
+        addToCart:(state,action)=>{
+            // const index=state.currentCartList.findIndex(item=>item._id===action.payload._id);
+            // if(index>=0){
+            //   state.currentCartList[index].quantity+=1;
+            // }
+            // else{
+            //   const temparray={...action.payload,quantity:1};
+            //   state.currentCartList.push(temparray);
+            // }
+            state.currentCartList.push(action.payload);
+        },
+        removefromCart:(state,action)=>{
+          const newarray=state.currentCartList.filter(item => item._id !== action.payload._id);
+          // state.currentCartList(newarray);
         },
     },
   })
   
   // Action creators are generated for each case reducer function
-  export const {currentCartList} = CartItemSlice.actions
-  
+  export const {currentCartList,currentItems,addToCart,removefromCart} = CartItemSlice.actions
   export default CartItemSlice.reducer
