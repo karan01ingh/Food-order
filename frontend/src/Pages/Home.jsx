@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import Menu from '../Components/menu'
-function Home() {
-  const [category,setcategory]=useState("ALL");
+import Fooditem from '../Components/Fooditem';
+import { useSelector,useDispatch } from 'react-redux';
+function Home(){
+  const dispatch=useDispatch();
+  const {currentList}=useSelector((state)=>state.FoodItem)
+  const [currentcategory,setcurrentcategory]=useState("ALL");
+  // function issameCategory(value) {
+  //   if(value="ALL"){
+  //     return true;
+  //   }
+  //   return value ==currentcategory;
+  // }
+  console.log(currentList);
   return (
     <div>
       <div className="bg-[url('./assets/header_img.png')] mt-8 ml-8 mr-8 sm:h-auto sm:w-auto p-20 sm:pt-40 rounded-lg bg-no-repeat   pt-20 "  >
@@ -10,15 +21,22 @@ function Home() {
      {/* bg-contain */}
      <div className='w-auto h-full '>
       <h1 className='sm:text-5xl font-bold text-white text-3xl animation-textanimate 4s '>Order Your </h1>
-      <br />
+      <br/>
       <h1 className='sm:text-5xl font-bold text-white text-3xl'>favourite fodd here</h1>
       <br />
       <h1 className='text-white text-sm sm:text-lg'>Lorem ipsum dolor sit amet consectetur, adipis Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga quidem distinctio adipisci voluptatum nam vero unde quasi! Dicta architecto voluptates explicabo quos reiciendis officiis odio rem dolores perferendis voluptate.</h1>
       <br />
-      <h1><button className='bg-white p-2 w-28 text-sm rounded-full text-black pl-2'>View Menu</button></h1>
+      <h1><button className='bg-white p-2 w-28 text-sm rounded-full text-black pl-2 font-semibold'>View Menu</button></h1>
      </div>
     </div>
-    <Menu category={category} setcategory={setcategory}/>
+    <Menu category={currentcategory} setcategory={setcurrentcategory}/>
+    <h1 className='text-3xl font-bold pl-8 pb-8'>Top dishes near you</h1>
+   <div className='w-auto h-auto flex flex-row flex-wrap justify-around'>
+      {currentList.map((list)=>(
+       currentcategory=="ALL" ||list.category===currentcategory?<Fooditem id={list._id} name={list.name} image={list.image} price={list.price} description={list.description} category={list.category} />:null
+        // list.category===currentcategory?<Fooditem id={list._id} name={list.name} image={list.image} price={list.price} description={list.description} category={list.category} />:null
+      ))}
+    </div>
     </div>
     
   )

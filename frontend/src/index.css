@@ -9,6 +9,7 @@ h1{
 *{
     @apply transition-colors duration-100;
     @apply transition-all duration-300;
+    /* @apply animate-fadeIn */
 }
 /* *{
     font-family:Outfit;

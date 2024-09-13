@@ -6,14 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      keyframes:{ 
-        'textanimate':{
-          '0%':{
-            
-          }
-        }
-        
-     }
+      animation: {
+        fadeIn: 'fadeIn 1s ease-out', // You can adjust the duration and easing as needed
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],
