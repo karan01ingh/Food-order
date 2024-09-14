@@ -36,7 +36,7 @@ function Menu({category,setcategory}){
         <Slider {...settings} >
             {menu_list.map((items)=>(
                 <div key={items.index} className='flex flex-col justify-center mt-2 ml-1 animate-fadeIn'>
-                    <button onClick={()=>{setcategory(items.menu_name)}}>{category===items.menu_name?<img src={items.menu_image} className='border-2   border-orange-600 rounded-full ' alt="" />:<img className='hover:scale-110' src={items.menu_image}/>}
+                    <button onClick={()=>{setcategory(items.menu_name)}}>{category===items.menu_name?<img src={items.menu_image} className='border-4 border-orange-600 rounded-full  ' alt="" />:<img className='hover:scale-110' src={items.menu_image}/>}
                     </button>
                     <h1 className='sm:text-start sm:pl-10 text-center text-sm font-semibold'>{items.menu_name}</h1>
                     </div>
