@@ -25,8 +25,10 @@ const initialState = {
             state.currentCartList.push(action.payload);
         },
         removefromCart:(state,action)=>{
-          // const newarray=state.currentCartList.filter(item => item._id !== action.payload._id);
-          // state.currentCartList(newarray);
+          state.currentCartList((prev) =>
+            prev.filter((post) => post._id !==action.payload._id)
+          );
+          // state.currentCartList=newarray;
         },
     },
   })

@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 import Menu from '../Components/menu'
 import Fooditem from '../Components/Fooditem';
 import { useSelector,useDispatch } from 'react-redux';
+import AppDownload from '../Components/AppDownload';
 function Home(){
   const dispatch=useDispatch();
   const {currentList}=useSelector((state)=>state.FoodItem)
@@ -38,6 +39,7 @@ function Home(){
         currentcategory=="ALL" ||list.category===currentcategory?<Fooditem list={list}/>:null
       ))}
     </div>
+    <AppDownload/>
     </div>
     
   )
