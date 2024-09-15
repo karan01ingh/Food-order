@@ -8,13 +8,14 @@ function Home(){
   const dispatch=useDispatch();
   const {currentList}=useSelector((state)=>state.FoodItem)
   const [currentcategory,setcurrentcategory]=useState("ALL");
+  const { currentitems}=useSelector((state)=>state.CartItems)
   // function issameCategory(value) {
   //   if(value="ALL"){
   //     return true;
   //   }
   //   return value ==currentcategory;
   // }
-  console.log(currentList);
+  console.log(currentitems);
   return (
     <div>
       <div className="bg-[url('./assets/header_img.png')] mt-8 ml-8 mr-8 sm:h-auto sm:w-auto p-20 sm:pt-40 rounded-lg bg-no-repeat   pt-20 "  >

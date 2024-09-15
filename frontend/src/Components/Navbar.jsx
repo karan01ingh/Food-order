@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
+import { useSelector } from 'react-redux';
 function Navbar() {
+    const {currentitems}=useSelector((state)=>state.CartItems)
     const [menu,setmenu]=useState("home");
-    const [items,setitems]=useState(1);
+    // const [items,setitems]=useState(1);
     const handleClick=async()=>{
         console.log("done");
     }
@@ -23,11 +25,11 @@ function Navbar() {
         </ul>
         </div>
         {/* third wala */}
-        <div className='w-44 md:w-56 h-auto '>
+        <div className='w-36 md:w-56 h-auto '>
             <ul className='flex flex-row justify-around '>
-                <li><button type="button"><img className='w-4 sm:w-auto' src={assets.search_icon} alt="" /></button></li>
-                <li onClick={handleClick} className='flex flex-row hover:cursor-pointer w-auto h-auto '><img className='relative w-4 h-5 sm:w-7 sm:h-8' src={assets.basket_icon} alt="" />{items==0?null:<span class="relative flex  sm:h-3 sm:w-3">
-  {/* <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span> */}
+                <li><button type="button"><img className='w-4 sm:w-auto mt-1 sm:mr-4' src={assets.search_icon} alt="" /></button></li>
+                <li onClick={handleClick} className='flex flex-row hover:cursor-pointer w-auto h-auto sm:mr-2'><img className='relative w-5 h-5 sm:w-7 sm:h-8' src={assets.basket_icon} alt="" />{currentitems==0||null?null:<span class="relative flex  sm:h-3 sm:w-3">
+  <span class="animate-ping absolute inline-flex h-1/3 sm:h-full w-full rounded-full bg-orange-400 opacity-75"></span>
   <span class="relative inline-flex rounded-full sm:h-3 sm:w-3 h-2 w-2 bg-orange-600"></span>
 </span>}</li>
                 <li><button type="button" className='sm:h-auto sm:w-20 w-14 h-auto p-1 text-xs sm:text-base  border-2 border-gray-400 rounded-full hover:bg-red-50'><h1>sign in</h1></button></li>

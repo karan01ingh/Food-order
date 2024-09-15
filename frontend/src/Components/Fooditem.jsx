@@ -11,15 +11,12 @@ function Fooditem({list}){
   const [clicked,setclicked]=useState(false);
   const [itemscount,setitemscount]=useState(0);
     const dispatch=useDispatch();
-    const {currentCartList}=useSelector((state)=>state.CartItems);
     const {currentitems}=useSelector((state)=>state.CartItems);
-
     const handleclickWhitebutton= ()=>{
       setitemscount(itemscount+1);
       dispatch(currentItems(currentitems+1));
       // dispatch(currentCartList({...currentCartList,[props.id]:props.price}));
       dispatch(addToCart(list));
-      
     }
     const handleclickGreenbutton= ()=>{
       setitemscount(itemscount+1) 
@@ -32,8 +29,6 @@ function Fooditem({list}){
       }
       // dispatch(removefromCart(list));
     }
-    console.log(currentCartList);
-    console.log(currentitems);
   return(
     <div id={list._id}  className='h-96 w-64 rounded-lg  ml-5 border-2 border-gray-50 shadow-md  shadow-gray-100 hover:scale-105 mt-1 mb-2 animate-fadeIn'>
       {/* its width can be 72 also but I give 64 because it can also be applied */}
