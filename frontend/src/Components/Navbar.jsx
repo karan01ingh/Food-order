@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 function Navbar() {
     const {currentitems}=useSelector((state)=>state.CartItems)
     const [menu,setmenu]=useState("home");
@@ -18,10 +19,10 @@ function Navbar() {
         <div className='md:w-96 w-0  h-auto p-1 invisible md:visible'>
             <ul className='flex flex-row justify-around '>
                 {/* learn new method for this */}
-                <li onClick={()=>setmenu("home")}>{menu=="home"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>home</h1>:<h1 className='hover:cursor-pointer'>home</h1>}</li>
-                <li onClick={()=>setmenu("menu")}>{menu=="menu"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>menu</h1>:<h1 className='hover:cursor-pointer'>menu</h1>}</li>
-                <li onClick={()=>setmenu("mobile-app")}>{menu=="mobile-app"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>mobile-app</h1>:<h1 className='hover:cursor-pointer'>mobile-app</h1>}</li>
-                <li onClick={()=>setmenu("contact-us")}>{menu=="contact-us"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>contact us</h1>:<h1 className='hover:cursor-pointer'>contact us</h1>}</li>
+                <Link onClick={()=>setmenu("home")}>{menu=="home"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>home</h1>:<h1 className='hover:cursor-pointer'>home</h1>}</Link>
+                <a href='#menu' onClick={()=>setmenu("menu")}>{menu=="menu"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>menu</h1>:<h1 className='hover:cursor-pointer'>menu</h1>}</a>
+                <a href='#App-Download' onClick={()=>setmenu("mobile-app")}>{menu=="mobile-app"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>mobile-app</h1>:<h1 className='hover:cursor-pointer'>mobile-app</h1>}</a>
+                <a href='#contact-us' onClick={()=>setmenu("contact-us")}>{menu=="contact-us"?<h1 className='border-b-2 border-gray-500 hover:cursor-pointer'>contact us</h1>:<h1 className='hover:cursor-pointer'>contact us</h1>}</a>
         </ul>
         </div>
         {/* third wala */}

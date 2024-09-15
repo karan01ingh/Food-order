@@ -3,7 +3,7 @@ import playstore from "../assets/play_store.png"
 import appstore from "../assets/app_store.png"
 function AppDownload() {
   return (
-    <div className='w-full h-36  text-center mt-4 sm:h-80 sm:p-12'>
+    <div className='w-full h-36  text-center mt-4 sm:h-80 sm:p-12' id='App-Download'>
       <h1 className='font-semibold text-xl pt-3 sm:text-4xl '>For Better Experience Download</h1>
       <h1 className='font-semibold text-xl sm:text-4xl  '>Tomato App</h1>
       <div className='flex flex-row justify-center mt-4'>

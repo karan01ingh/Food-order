@@ -6,7 +6,7 @@ import facebook from "../assets/facebook_icon.png"
 import { Link } from 'react-router-dom'
 function Footer() {
   return (
-    <div className='w-screen h-auto  bg-zinc-800 pl-4 pt-4 pr-1 flex flex-col md:pl-14 md:pt-14 md:pr-14 '>
+    <div className='w-screen h-auto  bg-zinc-800 pl-4 pt-4 pr-1 flex flex-col md:pl-14 md:pt-14 md:pr-14 ' id='contact-us'>
         <div className='h-auto w-full flex xs:flex-row justify-center items-center flex-col border-b-2 border-slate-200  pb-10 '>
             <div className='w-1/2'>
                 <img src={logo} alt=""/>

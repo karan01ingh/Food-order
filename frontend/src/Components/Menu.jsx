@@ -7,28 +7,27 @@ import { useEffect,useState } from 'react';
 function Menu({category,setcategory}){
     const [width,setwidth]=useState(window.innerWidth);
     const [clicked,setclicked]=useState(false);
-    // const handleClick=async()=>{
-    //     if(clicked==false){
-    //       setcategory(items.menu_name)
-    //       setclicked(true);
-    //     }
-    //     else{
-    //         setcategory("ALL");
-    //         setclicked(false);
-    //     }
-    //     console.log("done click");
-    // }
+    const handleClick=async()=>{
+        if(clicked==false){
+          setcategory(items.menu_name)
+          setclicked(true);
+        }
+        else{
+            setcategory("ALL");
+            setclicked(false);
+        }
+        console.log("done click");
+    }
     var settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow:6,
-        
         slidesToScroll:1
       };
       console.log(category);
   return (
-    <div className='flex flex-col ml-8 m-6 pb-16 border-b-2 border-gray-200'>
+    <div className='flex flex-col ml-8 m-6 pb-16 border-b-2 border-gray-200' id='menu'>
         <h1 className='text-4xl font-bold '>Explore Menu</h1>
         <br/>
         <h1 className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cum quisquam ipsum veritatis voluptate delectus nemo debitis corrupti, similique officia. Expedita nulla officiis unde eaque doloremque. Aspernatur sed accusamus nobis.loem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro architecto vitae tenetur ullam quod commodi illum quidem facilis sit totam. Culpa iste, voluptate labore provident quos quis! Consequatur, alias corrupti.</h1>
