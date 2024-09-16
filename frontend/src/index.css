@@ -4,12 +4,15 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
 h1{
    color:rgb(52, 52, 52)
+   /* color:rgba(0, 0, 0, 0.294) */
    
 }
 *{
     @apply transition-colors duration-100;
     @apply transition-all duration-300;
     @apply scroll-smooth;
+    @apply p-0;
+    @apply m-0;
     /* @apply animate-fadeIn */
 }
 /* *{

@@ -7,18 +7,27 @@ import Placeorder from "./Components/Placeorder.jsx"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Fooditem from './Components/Fooditem.jsx'
 import Footer from './Components/Footer.jsx'
+import Login from "./Components/Login.jsx"
+import Signup from './Components/Signup.jsx'
+import { useState } from 'react'
 function App() {
+  const [ShowSignup,setShowSignup]=useState(false);
+  const [ShowLogin,setShowLogin]=useState(false);
   return (
+    <>
+    {ShowSignup==true?<Signup setShowSignup={setShowSignup} setShowLogin={setShowLogin}/>:null},
+    {ShowLogin==true?<Login setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>:null}
     <BrowserRouter>
-        <Navbar/>
+        <Navbar setShowSignup={setShowSignup} />
         <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/Placeorder' element={<Placeorder/>}/>
           <Route path='/fooditem' element={<Fooditem/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>
+    </>
   )
 }
 

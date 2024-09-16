@@ -14,6 +14,9 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      colors:{
+        'mine':'#00000090'
+      },
       animation: {
         fadeIn: 'fadeIn 1s ease-out', // You can adjust the duration and easing as needed
       },

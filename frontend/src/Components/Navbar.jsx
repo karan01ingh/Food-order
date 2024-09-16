@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-function Navbar() {
+function Navbar({setShowSignup}) {
     const {currentitems}=useSelector((state)=>state.CartItems)
     const [menu,setmenu]=useState("home");
     // const [items,setitems]=useState(1);
@@ -10,7 +10,7 @@ function Navbar() {
         console.log("done");
     }
   return (
-    <div className='w-screen h-auto   flex flex-row justify-between p-4 bg-contain'>
+    <div className='w-screen h-auto flex flex-row justify-between p-4  '>
         {/* first wala */}
         <div className='sm:w-auto sm:h-auto w-24'>
             <img src={assets.logo} alt="" />
@@ -33,7 +33,7 @@ function Navbar() {
   <span class="animate-ping absolute inline-flex h-1/3 sm:h-full w-full rounded-full bg-orange-400 opacity-75"></span>
   <span class="relative inline-flex rounded-full sm:h-3 sm:w-3 h-2 w-2 bg-orange-600"></span>
 </span>}</li>
-                <li><button type="button" className='sm:h-auto sm:w-20 w-14 h-auto p-1 text-xs sm:text-base  border-2 border-gray-400 rounded-full hover:bg-red-50'><h1>sign in</h1></button></li>
+                <li><button onClick={()=>{setShowSignup(true)}} type="button" className='sm:h-auto sm:w-20 w-14 h-auto p-1 text-xs sm:text-base  border-2 border-gray-400 rounded-full hover:bg-red-50'><h1>sign in</h1></button></li>
             </ul>
         </div>
     </div>
