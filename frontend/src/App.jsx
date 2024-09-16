@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Navbar from './Components/Navbar'
 import Home from './Pages/Home.jsx'
-import Cart from "./Components/Cart.jsx"
+import Cart from './Pages/Cart.jsx'
 import Placeorder from "./Components/Placeorder.jsx"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Fooditem from './Components/Fooditem.jsx'
@@ -24,6 +24,7 @@ function App() {
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/Placeorder' element={<Placeorder/>}/>
           <Route path='/fooditem' element={<Fooditem/>}/>
+          <Route path='/Cart' element={<Cart/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>
