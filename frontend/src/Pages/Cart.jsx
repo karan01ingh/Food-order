@@ -3,7 +3,9 @@ import {currentCartList} from "../features/Cart.js"
 import { assets } from '../assets/assets.js';
 import cross from "../assets/cross_icon.png"
 import { useSelector,useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 function Cart() {
+  const navigate=useNavigate();
     const dispatch=useDispatch();
     const {currentCartList}=useSelector((state)=>state.CartItems);
     const [numberofitems,setnumberofitems]=useState(currentCartList);
@@ -49,7 +51,7 @@ function Cart() {
                 <h1 className='text-md font-bold'>Total</h1>
                 <h1>$64</h1>
               </div>
-              <button className='bg-orange-600  w-auto p-2 rounded-md mt-8'>Proceed <span>To Checkout</span></button>
+              <button className='bg-orange-600  w-auto p-2 rounded-md mt-8' onClick={()=>{navigate('/Order')}}>Proceed <span>To Checkout</span></button>
           </div>
           <div className='md:w-1/2 w-full h-full pl-8 pr-8 md:pl-0 md:pr-0 xs:ml-4'>
           <h1 className='font-semibold text-start'>If you have a promo code,Enter it here</h1>

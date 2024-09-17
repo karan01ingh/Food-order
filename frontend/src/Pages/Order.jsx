@@ -10,19 +10,21 @@ function Order() {
     }
     console.log(deliveryaddress);
   return (
-    <div className='w-screen lg:h-screen h-auto flex flex-col lg:flex-row'>
+    <form action="" >
+      <div className='w-screen lg:h-screen h-auto flex flex-col lg:flex-row'>
       <div className='lg:w-2/3 w-full h-4/5 md:p-16 xs:p-8 p-3 xs:mt-10 lg:p-16 pt-16'>
       <h1 className='md:text-3xl xs:text-2xl text-xl font-bold text-gray-600'>Delievery Information</h1>
       <div className='grid grid-cols-2 gap-1 w-full sm:gap-y-4 gap-y-2 sm:mt-10 mt-6'>
-        <input type="text" name='Firstname' className='sm:h-10 h-8 p-2  rounded-md sm:p-5 border-2 border-gray-400 text-gray-600 outline-1 outline-gray-500' placeholder='First name'  onChange={handleChange}/>
-        <input type="text" name='Lastname' className='sm:h-10 h-8 p-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Last name'  onChange={handleChange}/>
-        <input type="text" name='Emailaddress' className='sm:h-10 h-8 col-span-2 p-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Email address' onChange={handleChange}/>
-        <input type="text" name='Street' className='sm:h-10 h-8 p-2  col-span-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Street'  onChange={handleChange}/>
-        <input type="text" name='City' className='sm:h-10 h-8 p-2 sm:p-5 rounded-md border-2 border-gray-400 text-gray-600'placeholder='City' onChange={handleChange}/>
-        <input type="text" name='State' className='sm:h-10 h-8 p-2 sm:p-5 rounded-md border-2 border-gray-400 text-gray-600'placeholder='State' onChange={handleChange}/>
-        <input type="text" name='Zipcode' className='sm:h-10 h-8 sm:p-5 p-2 rounded-md border-2 border-gray-400 text-gray-600'placeholder='Zip code' onChange={handleChange}/>
-        <input type="text" name='Country' className='sm:h-10 h-8 sm:p-5 p-2 rounded-md  border-2 border-gray-400 text-gray-600'placeholder='Country' onChange={handleChange}/>
-        <input type="text" name='Phone' className='sm:h-10 h-8 sm:p-5 p-2 col-span-2 rounded-md border-2 border-gray-400 text-gray-600'placeholder='Phone' onChange={handleChange}/>
+        
+        <input type="text" name='Firstname' className='sm:h-10 h-8 p-2  rounded-md sm:p-5 border-2 border-gray-400 text-gray-600 outline-1 outline-gray-500' placeholder='First name'required onChange={handleChange}/>
+        <input type="text" name='Lastname' className='sm:h-10 h-8 p-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Last name'  onChange={handleChange} required/>
+        <input type="email" name='Emailaddress' className='sm:h-10 h-8 col-span-2 p-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Email address' onChange={handleChange} required/>
+        <input type="text" name='Street' className='sm:h-10 h-8 p-2  col-span-2 rounded-md sm:p-5 border-2 border-gray-400 text-gray-600'placeholder='Street'  onChange={handleChange} required/>
+        <input type="text" name='City' className='sm:h-10 h-8 p-2 sm:p-5 rounded-md border-2 border-gray-400 text-gray-600'placeholder='City' onChange={handleChange} required/>
+        <input type="text" name='State' className='sm:h-10 h-8 p-2 sm:p-5 rounded-md border-2 border-gray-400 text-gray-600'placeholder='State' onChange={handleChange} required/>
+        <input type="text" name='Zipcode' className='sm:h-10 h-8 sm:p-5 p-2 rounded-md border-2 border-gray-400 text-gray-600'placeholder='Zip code' onChange={handleChange} required/>
+        <input type="text" name='Country' className='sm:h-10 h-8 sm:p-5 p-2 rounded-md  border-2 border-gray-400 text-gray-600'placeholder='Country' onChange={handleChange} required/>
+        <input type="phone" name='Phone' className='sm:h-10 h-8 sm:p-5 p-2 col-span-2 rounded-md border-2 border-gray-400 text-gray-600'placeholder='Phone' onChange={handleChange} required/>       
       </div>
       </div>
       <div className='lg:w-1/3 w-full h-4/5 xs:pt-2 lg:mt-16 xs:p-10 p-0'>
@@ -41,10 +43,12 @@ function Order() {
                 <h1 className='text-md font-bold text-gray-600'>Total</h1>
                 <h1>$64</h1>
               </div>
-              <button className='bg-orange-600 p-2 rounded-md mt-8 w-40  sm:w-44 text-center  text-xs sm:text-base text-white font-semibold ' onClick={handleClick}>Proceed <span >To Checkout</span></button>
+              <button className='bg-orange-600 p-2 rounded-md mt-8 w-40  sm:w-44 text-center  text-xs sm:text-base text-white font-semibold' type='Submit'>Proceed <span >To Checkout</span></button>
           </div>
           </div>
     </div>
+    </form>
+    
   )
 }
 
