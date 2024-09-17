@@ -10,6 +10,7 @@ import Footer from './Components/Footer.jsx'
 import Login from "./Components/Login.jsx"
 import Signup from './Components/Signup.jsx'
 import { useState } from 'react'
+import Order from './Pages/Order.jsx'
 function App() {
   const [ShowSignup,setShowSignup]=useState(false);
   const [ShowLogin,setShowLogin]=useState(false);
@@ -25,6 +26,7 @@ function App() {
           <Route path='/Placeorder' element={<Placeorder/>}/>
           <Route path='/fooditem' element={<Fooditem/>}/>
           <Route path='/Cart' element={<Cart/>}/>
+          <Route path='/Order' element={<Order/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>
