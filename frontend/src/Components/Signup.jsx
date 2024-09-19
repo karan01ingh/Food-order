@@ -1,11 +1,32 @@
 import React from 'react'
 import crossIcon from "../assets/cross_icon.png"
-import { useState } from 'react';
-function Signup({setShowSignup,setShowLogin}) {
+import {useState} from 'react';
+import {CurrentUser,Authenticated } from '../features/currentuser';
+import {useDispatch } from 'react-redux';
+function Signup({setShowSignup,setShowLogin}){
+  const dispatch=useDispatch();
   const [Signupdata,SetSignupdata]=useState(null);
   const handleChange=(e)=>{
       SetSignupdata({...Signupdata,[e.target.name]:e.target.value});
       console.log(Signupdata);
+  }
+  const handleSubmit=async()=>{
+    try {
+      const res=await fetch('/ap/User/Signup',{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(Signupdata)
+      });
+      if(res.success){
+        const data=res.json();
+        // dispatch(CurrentUser(data.new));
+        // dispatch(Authenticated(true));
+        setShowSignup(false);
+
+      }
+    } catch (error) { 
+
+    }
   }
   return (
     <div className='w-screen h-screen flex justify-center items-center p-5 absolute  bg-mine '>
@@ -16,7 +37,7 @@ function Signup({setShowSignup,setShowLogin}) {
     <h1 className='text-3xl font-sans mb-3 font-bold'>Sign Up</h1>
     <img className='w-5 h-5 mt-3 hover:cursor-pointer' onClick={()=>{setShowSignup(false)}} src={crossIcon} alt="" />
     </div>
-    <form>
+    <form onSubmit={handleSubmit}>
     <div className='flex flex-col pt-2 m-1'>
           {/* <div className='flex justify-between'>Your Name</div> */}
           <input type="name" id='name' name='name' className='xs:h-10 h-8 rounded-md outline-orange-600 border-2 border-gray-300 p-1 pl-3 xs:text-base text-xs text-neutral-900' required placeholder='Your name' onChange={handleChange} />
@@ -33,7 +54,7 @@ function Signup({setShowSignup,setShowLogin}) {
           {/* <div className='flex justify-between'><label htmlFor="repass">Re-enter Password</label></div> */}
           <input type="password" id='repassword' className='xs:h-10 h-8 rounded-md outline-orange-600 border-2 border-gray-300 p-1 pl-3 xs:text-base text-xs text-neutral-900' name='repassword' required placeholder='Re-enter Password' onChange={handleChange}/>
     </div>
-    <div className='w-full bg-orange-600 text-center p-2 mt-4 rounded-md font-semibold text-white'><button>Create your Account</button></div>
+    <div className='w-full bg-orange-600 text-center p-2 mt-4 rounded-md font-semibold text-white'><button type='Submit'>Create your Account</button></div>
     <div className='flex flex-row items-start mt-3 '><input type="checkbox" name="" id="check" className='xs:mt-2  mt-1 mr-1 ' required/><h1 className='xs:text-base text-xs'>By continuing, I agree to the<span className='text-blue-500'>terms of use </span>& <span className='text-blue-500'>privacy policy.</span></h1></div>
     </form>
     <h1 className='text-xs xs:text-base mt-4'>Already have and account?<span className='text-orange-600 font-semibold hover:cursor-pointer' onClick={()=>{setShowSignup(false),setShowLogin(true)}}>Login here</span></h1>
