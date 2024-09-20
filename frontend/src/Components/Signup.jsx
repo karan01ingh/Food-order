@@ -54,6 +54,14 @@ function Signup({setShowSignup,setShowLogin}){
           {/* <div className='flex justify-between'><label htmlFor="repass">Re-enter Password</label></div> */}
           <input type="password" id='repassword' className='xs:h-10 h-8 rounded-md outline-orange-600 border-2 border-gray-300 p-1 pl-3 xs:text-base text-xs text-neutral-900' name='repassword' required placeholder='Re-enter Password' onChange={handleChange}/>
     </div>
+    <div className='flex flex-col pt-2 m-1'>
+          {/* <div className='flex justify-between'>Email</div> */}
+          {/* <input type='' id='email' name='email' className='xs:h-10 h-8 rounded-md outline-orange-600 border-2 border-gray-300 p-1 pl-3 xs:text-base text-xs text-neutral-900' required  placeholder='Your email' onChange={handleChange}/> */}
+          <select name="Select" id="" onChange={handleChange} className='xs:h-10 h-8 rounded-md outline-orange-600 border-2 border-gray-300 p-1 pl-3 xs:text-base text-xs text-neutral-900'>
+            <option value="Customer">Customer</option>
+            <option value="Vendor">Vendor</option>
+          </select>
+    </div>
     <div className='w-full bg-orange-600 text-center p-2 mt-4 rounded-md font-semibold text-white'><button type='Submit'>Create your Account</button></div>
     <div className='flex flex-row items-start mt-3 '><input type="checkbox" name="" id="check" className='xs:mt-2  mt-1 mr-1 ' required/><h1 className='xs:text-base text-xs'>By continuing, I agree to the<span className='text-blue-500'>terms of use </span>& <span className='text-blue-500'>privacy policy.</span></h1></div>
     </form>

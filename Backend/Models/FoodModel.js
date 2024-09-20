@@ -30,6 +30,10 @@ const FoodSchema=new mongoose.Schema({
     isUser:{
         type:Boolean,
         default:true
+    },
+    userId:{
+        type:String,
+        required:true
     }
 },{timestamps:true});
 const FoodItem=mongoose.model('foodModel',FoodSchema);
