@@ -1,52 +1,44 @@
 import React, { useState } from 'react'
 import addicon from "../assets/add_icon.png"
 import ordericon from "../assets/order_icon.png"
-function Sidebar(){
-  const [sideitem,setsideitem]=useState("All");
-  
-  return (
-    <div className='h-screen w-64 border-r-2 border-slate-500 pt-10 flex flex-col items-end'>
-      {/* <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start w-52 bg-red-100 rounded-l-sm'>
-        <img src={addicon} alt="" className='h-6 pr-5'/>
-        <h1 className='font-semibold'>Add Items</h1>
-      </div> */}
-      {sideitem=="AddItems"?
-           <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start w-52 bg-red-100 rounded-l-sm hover:cursor-pointer'>
-               <img src={addicon} alt="" className='h-6 pr-5'/>
-               <h1 className='font-semibold'>Add Items</h1>
+import { useNavigate } from "react-router-dom";
+function Sidebar({category,setcategory}){
+  const navigate=useNavigate();
+  return(
+    <div className='h-screen sm:w-64 w-16 border-r-2 border-slate-500 pt-10 flex flex-col items-end'>
+      {{category}=="AddItem"?
+           <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row  sm:justify-start justify-center sm:w-48 w-10 bg-red-100 rounded-l-sm hover:cursor-pointer'>
+               <img src={addicon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+               <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>Add Items</h1>
            </div>
         :
-            <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start w-52 hover:cursor-pointer  rounded-l-sm' onClick={()=>{setsideitem("AddItems")}}>
-                <img src={addicon} alt="" className='h-6 pr-5'/>
-                <h1 className='font-semibold'>Add Items</h1>
+            <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row sm:justify-start justify-center sm:w-48 w-10 hover:cursor-pointer  rounded-l-sm' onClick={()=>{navigate("/AddItem")}}>
+                <img src={addicon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+                <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>Add Items</h1>
            </div>
        }
-      <br />
-      {/* <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start w-52 rounded-l-sm' >
-        <img src={addicon} alt="" className='h-6 pr-5'/>
-        <h1 className='font-semibold'>List Items</h1>
-      </div> */}
-      {sideitem=="ListItems"?
-          <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start hover:cursor-pointer  bg-red-100 w-52 rounded-l-sm' >
-               <img src={addicon} alt="" className='h-6 pr-5'/>
-               <h1 className='font-semibold'>List Items</h1>
+      <br/>
+      {{category}=="ListItems"?
+          <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row sm:justify-start justify-center sm:w-48 w-10  hover:cursor-pointer  bg-red-100  rounded-l-sm'>
+               <img src={addicon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+               <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>List Items</h1>
           </div>
           :
-          <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start w-52 hover:cursor-pointer rounded-l-sm' onClick={()=>{setsideitem("ListItems")}} >
-              <img src={addicon} alt="" className='h-6 pr-5'/>
-              <h1 className='font-semibold'>List Items</h1>
+          <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row sm:justify-start justify-center sm:w-48 w-10 hover:cursor-pointer rounded-l-sm' onClick={()=>{navigate("/ListItem")}} >
+              <img src={addicon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+              <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>List Items</h1>
           </div>
       }
-      <br />
-      {sideitem=="Orders"?
-           <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start hover:cursor-pointer bg-red-100 w-52 rounded-l-sm'>
-              <img src={ordericon} alt="" className='h-6 pr-5'/>
-              <h1 className='font-semibold'>Orders</h1>
+      <br/>
+      {{category}=="Orders"?
+           <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row sm:justify-start justify-center hover:cursor-pointer bg-red-100 sm:w-48 w-10 rounded-l-sm'>
+              <img src={ordericon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+              <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>Orders</h1>
            </div> 
            :
-           <div className='p-2 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row justify-start hover:cursor-pointer w-52 rounded-l-sm' onClick={()=>{setsideitem("Orders")}}>
-                <img src={ordericon} alt="" className='h-6 pr-5'/>
-                <h1 className='font-semibold'>Orders</h1>
+           <div className='sm:p-2 p-1 border-t-2 border-b-2 border-l-2 border-slate-500 flex flex-row sm:justify-start justify-center hover:cursor-pointer sm:w-48 w-10 rounded-l-sm' onClick={()=>{navigate("/Orders")}}>
+                <img src={ordericon} alt="" className='sm:h-6 h-3 sm:pr-5 mr-1'/>
+                <h1 className='font-semibold text-xs sm:text-base invisible w-0 sm:w-auto sm:visible'>Orders</h1>
            </div> 
       }   
       <br/>
