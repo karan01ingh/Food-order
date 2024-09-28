@@ -1,8 +1,13 @@
 import React from 'react'
 import Sidebar from '../Components/Sidebar'
 import parcelicon from "../assets/parcel_icon.png"
-import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Orders(){
+  const notify = () => toast.success("Item Added Successfully!");
+  const handleChange=async()=>{
+    notify();
+  }
   // const [selection,setselection]=useState("Orders");
   let arr=[{"item":2,details:"greeksalad",address:"nfvfdnv fdv fdvdf fhbfer"},{item:2,details:"greekWined",address:"nfvfdnv fdv fdvdf fhbfer"}];
   return(
@@ -21,11 +26,12 @@ function Orders(){
             </div>
             <h1>{list.item}</h1>
             <h1 className='font-bold  mt-1 md:mt-0'>$48</h1>
-            <select name="" id="" className='h-10 text-gray-700 border-2 border-slate-500 bg-red-100 rounded-sm  mt-1 md:mt-0'>
+            <select name="" id="" className='h-10 text-gray-700 border-2 border-slate-500 bg-red-100 rounded-sm  mt-1 md:mt-0' onChange={handleChange}>
               <option value="Food Processing" className='bg-green-300'>Food Processing</option>
               <option value="Food conferm" className='bg-green-300'>Food Done</option>
               <option value="out of deleivery" className='bg-green-300'>Out for Delievery</option>
             </select>
+            <ToastContainer/>
           </div>
         ))}
         </div>

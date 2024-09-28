@@ -21,6 +21,7 @@ function Fooditem({list}){
     const handleclickGreenbutton= ()=>{
       setitemscount(itemscount+1) 
       dispatch(currentItems(currentitems+1));
+
     }
     const handleclickRedbutton= ()=>{
       setitemscount(itemscount-1) 
@@ -28,17 +29,22 @@ function Fooditem({list}){
        dispatch(currentItems(currentitems-1));
       }
       // dispatch(removefromCart(list));
+
     }
+
   return(
     <div id={list._id}  className='h-96 w-64 rounded-lg  ml-5 border-2 border-gray-50 shadow-md  shadow-gray-100 hover:scale-105 mt-1 mb-2 animate-fadeIn'>
       {/* its width can be 72 also but I give 64 because it can also be applied */}
       <img className='rounded-t-lg' src={list.image} alt="" />
       <button className='h-14 w-full flex flex-row justify-end -mt-12 pr-2'>
-        {itemscount==0? <img onClick={handleclickWhitebutton} className='h-10 w-auto hover:border-2 hover:border-orange-600 rounded-full' src={add_icon_white} alt="" />:
+        {itemscount==0? <img onClick={handleclickWhitebutton} className='h-10 w-auto hover:border-2 hover:border-orange-600 rounded-full' src={add_icon_white} alt="" />
+        :
         <div className='w-28 flex flex-row justify-between bg-white p-1 rounded-full font-semibold'>
           <img onClick={handleclickGreenbutton} src={icon_green} alt="" />
+          
           <h1>{itemscount}</h1>
           <img onClick={handleclickRedbutton} src={remove_icon} alt="" />
+          
         </div>} 
        </button>
       <div className='h-40 w-full flex flex-col p-4 '>
